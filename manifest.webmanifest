@@ -1,0 +1,18 @@
+{
+  "name": "DNA Persona P001 Stage1",
+  "short_name": "P001 Stage1",
+  "start_url": "./index.html?debug=1",
+  "display": "standalone",
+  "background_color": "#111111",
+  "theme_color": "#111111",
+  "lang": "he",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

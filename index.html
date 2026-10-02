@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#111111" />
+  <title>P001 Stage1 · DNA Persona</title>
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="./icon-192.png" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header>
+    <h1>P001 שחר חסון — Stage-1 HTTPS Demo</h1>
+    <div class="meta-row" id="identityBar" aria-live="polite">
+      <span id="loadStatus" class="pill">LOAD…</span>
+      <span id="personaIdLabel" class="pill">PERSONA: —</span>
+      <span id="personaVerLabel" class="pill muted">ver: —</span>
+      <span id="providerModeLabel" class="pill muted">PROVIDER: —</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel" aria-label="session">
+      <div class="grid2">
+        <div>Session: <strong id="sessionId">—</strong></div>
+        <div>Build: <strong id="buildVer">—</strong></div>
+        <div>Session status: <strong id="sessionStatus">INIT</strong></div>
+        <div>Error: <strong id="errorStatus" class="err">none</strong></div>
+      </div>
+    </section>
+
+    <section class="panel" aria-label="microphone">
+      <h2>מיקרופון / Microphone</h2>
+      <div class="controls">
+        <button type="button" id="btnMicPerm" class="primary">בקש הרשאת מיקרופון</button>
+        <button type="button" id="btnPTT" class="primary" disabled>החזק לדיבור</button>
+        <button type="button" id="btnStop" class="danger">עצור / Interrupt</button>
+      </div>
+      <div class="grid2">
+        <div>Mic permission: <strong id="micPermStatus">UNKNOWN</strong></div>
+        <div>Mic input: <strong id="micInputStatus">IDLE</strong>
+          <span id="micLevel" class="level" aria-hidden="true"></span>
+        </div>
+        <div>Audio out: <strong id="audioStatus">IDLE</strong></div>
+        <div>Response: <strong id="responseStatus">IDLE</strong></div>
+      </div>
+    </section>
+
+    <section class="panel" aria-label="transcript">
+      <h2>תמליל / Transcript</h2>
+      <div id="transcript" class="box" aria-live="polite"></div>
+      <div class="row">
+        <input type="text" id="typed" placeholder="הקלד בעברית (חלופה למיקרופון)" autocomplete="off" enterkeyhint="send" />
+        <button type="button" id="btnSend">שלח / Process</button>
+      </div>
+    </section>
+
+    <section class="panel" aria-label="response">
+      <h2>תגובה / Response</h2>
+      <div id="responseArea" class="box response">—</div>
+    </section>
+
+    <section class="panel debug-panel" aria-label="debug">
+      <label class="debug-toggle"><input type="checkbox" id="chkDebug" /> Debug / Test view</label>
+      <div id="debugStrip" hidden></div>
+      <div class="controls" id="debugActions" hidden>
+        <button type="button" id="btnCopyDiag">COPY DIAGNOSTICS</button>
+        <button type="button" id="btnCopyFail">COPY FAILURE PAYLOAD</button>
+        <button type="button" id="btnDump">Dump session capsule</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <small>PROVIDER_MODE=MOCK · Independent Voice path (temporary speechSynthesis/beep) · NOT ChatGPT Voice · REAL_IPHONE_TEST=NOT_RUN until physical device evidence</small>
+  </footer>
+  <script src="./app.js"></script>
+</body>
+</html>

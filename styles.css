@@ -1,0 +1,50 @@
+:root { color-scheme: dark; font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #111; color: #eee; padding-bottom: env(safe-area-inset-bottom); }
+header, main, footer { padding: 12px; max-width: 720px; margin: 0 auto; }
+h1 { font-size: 1.05rem; margin: 0 0 8px; font-weight: 600; }
+h2 { font-size: 0.95rem; margin: 0 0 8px; font-weight: 600; color: #ccc; }
+.meta-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.pill { display: inline-block; padding: 4px 8px; border-radius: 999px; background: #1e2e1e; border: 1px solid #3a5a3a; font-size: 12px; }
+.pill.muted { background: #1a1a1a; border-color: #333; color: #bbb; }
+.pill.warn { background: #3a2a00; border-color: #6a5a20; }
+.pill.ok { background: #1a3a1a; border-color: #3a6a3a; }
+.panel { border: 1px solid #2a2a2a; border-radius: 10px; padding: 12px; margin: 10px 0; background: #161616; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 13px; }
+@media (max-width: 520px) { .grid2 { grid-template-columns: 1fr; } }
+.box {
+  min-height: 120px; max-height: 36vh; overflow: auto;
+  border: 1px solid #333; padding: 8px; background: #181818;
+  direction: rtl; text-align: right; border-radius: 8px;
+}
+.box.response { min-height: 72px; max-height: 24vh; white-space: pre-wrap; }
+.msg { margin: 6px 0; padding: 6px 8px; border: 1px solid #2a2a2a; border-radius: 6px; }
+.msg.user { border-color: #355; }
+.msg.assistant { border-color: #353; }
+.msg.system { border-color: #444; color: #aaa; font-size: 12px; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 8px; }
+button, select, input[type=text] {
+  font: inherit; padding: 12px 14px; border: 1px solid #444; background: #222; color: #eee;
+  border-radius: 8px; min-height: 44px;
+}
+button:disabled { opacity: 0.45; }
+button.primary { background: #2a4a2a; border-color: #4a6a4a; }
+button.danger { background: #4a2a2a; border-color: #6a4a4a; }
+#typed { flex: 1 1 160px; min-width: 140px; }
+.err { color: #f88; }
+.level {
+  display: inline-block; width: 48px; height: 10px; margin-inline-start: 6px;
+  background: #222; border: 1px solid #333; vertical-align: middle; position: relative;
+}
+.level::after {
+  content: ""; position: absolute; inset: 1px auto 1px 1px; width: var(--lvl, 0%);
+  background: #3c8; border-radius: 2px;
+}
+#debugStrip {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px;
+  background: #1a1a1a; border: 1px solid #333; padding: 8px; white-space: pre-wrap;
+  direction: ltr; text-align: left; margin-top: 8px; border-radius: 6px;
+}
+.debug-toggle { font-size: 13px; color: #bbb; }
+footer { color: #888; font-size: 11px; }
