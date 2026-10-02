@@ -6,37 +6,55 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="theme-color" content="#111111" />
-  <title>P001 Stage1 · DNA Persona</title>
+  <title>P001 Stage1 v1.0.1 · DNA Persona</title>
   <link rel="manifest" href="./manifest.webmanifest" />
   <link rel="apple-touch-icon" href="./icon-192.png" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
   <header>
-    <h1>P001 שחר חסון — Stage-1 HTTPS Demo</h1>
+    <h1>P001 שחר חסון — Stage-1 HTTPS Demo <span class="build-tag">v1.0.1</span></h1>
     <div class="meta-row" id="identityBar" aria-live="polite">
       <span id="loadStatus" class="pill">LOAD…</span>
       <span id="personaIdLabel" class="pill">PERSONA: —</span>
       <span id="personaVerLabel" class="pill muted">ver: —</span>
       <span id="providerModeLabel" class="pill muted">PROVIDER: —</span>
+      <span id="testModeLabel" class="pill">TEST A</span>
     </div>
   </header>
 
   <main>
+    <div id="listeningBanner" class="listening-banner" hidden aria-hidden="true">🎙️ מקשיב…</div>
+
     <section class="panel" aria-label="session">
       <div class="grid2">
         <div>Session: <strong id="sessionId">—</strong></div>
-        <div>Build: <strong id="buildVer">—</strong></div>
+        <div>Build: <strong id="buildVer">stage1_https_v1.0.1</strong></div>
         <div>Session status: <strong id="sessionStatus">INIT</strong></div>
+        <div>Media state: <strong id="mediaState">IDLE</strong></div>
         <div>Error: <strong id="errorStatus" class="err">none</strong></div>
+        <div>Recognized: <strong id="recognizedExact">RECOGNIZED: —</strong></div>
       </div>
+    </section>
+
+    <section class="panel" aria-label="tests">
+      <h2>בדיקות / Tests (A then B)</h2>
+      <div class="controls">
+        <button type="button" data-test-mode="A" class="primary active">Test A · מחזור מלא</button>
+        <button type="button" data-test-mode="B" class="primary">Test B · Interrupt</button>
+      </div>
+      <div class="grid2">
+        <div>Test A: <strong id="testAStatus">NOT_RUN</strong></div>
+        <div>Test B: <strong id="testBStatus">NOT_RUN</strong></div>
+      </div>
+      <p class="hint">A: דבר פעם אחת → תמליל מלא → תשובת MOCK קשורה → שמע אודיו. B: רק אחרי שמתחיל אודיו — Interrupt.</p>
     </section>
 
     <section class="panel" aria-label="microphone">
       <h2>מיקרופון / Microphone</h2>
       <div class="controls">
         <button type="button" id="btnMicPerm" class="primary">בקש הרשאת מיקרופון</button>
-        <button type="button" id="btnPTT" class="primary" disabled>החזק לדיבור</button>
+        <button type="button" id="btnPTT" class="primary ptt" disabled>החזק לדיבור</button>
         <button type="button" id="btnStop" class="danger">עצור / Interrupt</button>
       </div>
       <div class="grid2">
@@ -59,7 +77,7 @@
     </section>
 
     <section class="panel" aria-label="response">
-      <h2>תגובה / Response</h2>
+      <h2>תגובה / Response (MOCK echo)</h2>
       <div id="responseArea" class="box response">—</div>
     </section>
 
@@ -75,7 +93,7 @@
   </main>
 
   <footer>
-    <small>PROVIDER_MODE=MOCK · Independent Voice path (temporary speechSynthesis/beep) · NOT ChatGPT Voice · REAL_IPHONE_TEST=NOT_RUN until physical device evidence</small>
+    <small>BUILD stage1_https_v1.0.1 · PROVIDER_MODE=MOCK · Independent temporary TTS · NOT ChatGPT Voice · REAL_IPHONE_TEST retained FAILED_PARTIAL until physical retest</small>
   </footer>
   <script src="./app.js"></script>
 </body>

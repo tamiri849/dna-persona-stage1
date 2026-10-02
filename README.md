@@ -1,6 +1,8 @@
-# DNA Persona P001 Stage-1 HTTPS Demo (MOCK)
+# dna-persona-stage1
 
-Safari/iPhone Stage-1 vertical slice. PROVIDER_MODE=MOCK. Independent temporary TTS (not ChatGPT Voice).
-REAL_IPHONE_TEST remains NOT_RUN until Tamir's physical device evidence.
+P001 Stage-1 HTTPS demo for DNA Persona (MOCK provider).
 
-Open: https://tamiri849.github.io/dna-persona-stage1/
+- **Build:** stage1_https_v1.0.1 (remediation after physical FAILED_PARTIAL)
+- **Pages:** https://tamiri849.github.io/dna-persona-stage1/
+- Independent temporary TTS — not ChatGPT Voice
+- REAL_IPHONE_TEST_STATUS is set only from physical evidence (currently FAILED_PARTIAL pending retest)

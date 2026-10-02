@@ -1,6 +1,6 @@
 {
-  "name": "DNA Persona P001 Stage1",
-  "short_name": "P001 Stage1",
+  "name": "DNA Persona P001 Stage1 v1.0.1",
+  "short_name": "P001 S1",
   "start_url": "./index.html?debug=1",
   "display": "standalone",
   "background_color": "#111111",

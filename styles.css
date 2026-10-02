@@ -4,6 +4,7 @@ body { margin: 0; background: #111; color: #eee; padding-bottom: env(safe-area-i
 header, main, footer { padding: 12px; max-width: 720px; margin: 0 auto; }
 h1 { font-size: 1.05rem; margin: 0 0 8px; font-weight: 600; }
 h2 { font-size: 0.95rem; margin: 0 0 8px; font-weight: 600; color: #ccc; }
+.build-tag { color: #8c8; font-weight: 700; }
 .meta-row { display: flex; flex-wrap: wrap; gap: 6px; }
 .pill { display: inline-block; padding: 4px 8px; border-radius: 999px; background: #1e2e1e; border: 1px solid #3a5a3a; font-size: 12px; }
 .pill.muted { background: #1a1a1a; border-color: #333; color: #bbb; }
@@ -26,13 +27,17 @@ h2 { font-size: 0.95rem; margin: 0 0 8px; font-weight: 600; color: #ccc; }
 .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 8px; }
 button, select, input[type=text] {
   font: inherit; padding: 12px 14px; border: 1px solid #444; background: #222; color: #eee;
-  border-radius: 8px; min-height: 44px;
+  border-radius: 8px; min-height: 44px; touch-action: none;
 }
 button:disabled { opacity: 0.45; }
 button.primary { background: #2a4a2a; border-color: #4a6a4a; }
 button.danger { background: #4a2a2a; border-color: #6a4a4a; }
-#typed { flex: 1 1 160px; min-width: 140px; }
+button.active { outline: 2px solid #6c6; }
+button.ptt.recording { background: #4a2020; border-color: #c44; animation: pulse 1.2s infinite; }
+@keyframes pulse { 50% { filter: brightness(1.25); } }
+#typed { flex: 1 1 160px; min-width: 140px; touch-action: manipulation; }
 .err { color: #f88; }
+.hint { font-size: 12px; color: #999; margin: 6px 0 0; }
 .level {
   display: inline-block; width: 48px; height: 10px; margin-inline-start: 6px;
   background: #222; border: 1px solid #333; vertical-align: middle; position: relative;
@@ -40,6 +45,11 @@ button.danger { background: #4a2a2a; border-color: #6a4a4a; }
 .level::after {
   content: ""; position: absolute; inset: 1px auto 1px 1px; width: var(--lvl, 0%);
   background: #3c8; border-radius: 2px;
+}
+.listening-banner {
+  position: sticky; top: 0; z-index: 20; text-align: center;
+  background: #3a1515; border: 1px solid #c44; color: #fcc;
+  padding: 10px; border-radius: 8px; font-weight: 700; margin-bottom: 8px;
 }
 #debugStrip {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px;
